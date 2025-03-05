@@ -352,7 +352,7 @@ class Geometria:
         Returns:
             float: Área del polígono regular
         """
-        return round((num_lados*lado*apotema)/1,2)
+        return round((num_lados*lado*apotema)/2,2)
 
         pass
     
