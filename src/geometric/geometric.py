@@ -331,24 +331,24 @@ class Geometria:
         Returns:
             tuple: Coeficientes (A, B, C) de la ecuación de la recta
         """   
-        if x1 == x2:  # Línea vertical
+        if x1 == x2: 
             return (1, 0, -x1)
-        
+
         A = y2 - y1
         B = x1 - x2
         C = -(A * x1 + B * y1)
 
-        gcd = math.gcd(math.gcd(A, B), C)  # Obtener MCD para simplificar
+        gcd = math.gcd(math.gcd(A, B), C)
 
-        if gcd != 0:  # Evitar división por 0
+        if gcd != 0:
             A //= gcd
             B //= gcd
             C //= gcd
-
-        if A < 0:  # Asegurar que A sea positivo para uniformidad
+        if A < 0 or (A == 0 and B < 0):
             A, B, C = -A, -B, -C
 
         return (A, B, C)
+
         pass
     
     def area_poligono_regular(self, num_lados, lado, apotema):
