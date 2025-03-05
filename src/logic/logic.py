@@ -1,3 +1,4 @@
+#OK
 class Logica:
     """
     Clase con métodos para realizar operaciones de lógica booleana y algoritmos.
