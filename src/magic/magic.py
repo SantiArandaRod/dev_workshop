@@ -85,7 +85,10 @@ class Magic:
         Returns:
             bool: True si n es un número perfecto, False en caso contrario
         """
-        return sum(i for i in range(1,n) if n%i==0)==n
+        if n<2:
+            return False
+        suma_divisores=sum(i for i in range(1,n) if n%1==0)
+        return suma_divisores==n
         pass
     
     def triangulo_pascal(self, filas):
@@ -133,9 +136,8 @@ class Magic:
         Returns:
             int: El máximo común divisor de a y b
         """
-        while b:
-            a,b=b,a%b
-            return a
+        import math
+        return math.gcd(a,b)
         pass
     
     def mcm(self, a, b):
@@ -149,7 +151,7 @@ class Magic:
         Returns:
             int: El mínimo común múltiplo de a y b
         """
-        return abs(a*b)// self.mcd(a,b)
+        return abs(a*b)// self.mcd(a,b) if a and b else 0
         pass
     
     def suma_digitos(self, n):
@@ -176,7 +178,7 @@ class Magic:
             bool: True si n es un número de Armstrong, False en caso contrario
         """
         num_str =str(n)
-        return sum(int(dig1)**len(num_str) for digito in num_str)==n
+        return sum(int(dig1)**len(num_str) for dig1 in num_str)==n
         pass
     
     def es_cuadrado_magico(self, matriz):
