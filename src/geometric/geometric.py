@@ -338,10 +338,15 @@ class Geometria:
         B = x1 - x2
         C = -(A * x1 + B * y1)
 
-        if B <0 or (B==0 and A<0):
-            A,B,C=-A,-B,-C
-        divisor= gcd(gcd(abs(A), abs(B)), abs(C)) if A or B else 1
-        A,B,C=A//divisor, B//divisor, C//divisor 
+        gcd = math.gcd(math.gcd(A, B), C)  # Obtener MCD para simplificar
+
+        if gcd != 0:  # Evitar división por 0
+            A //= gcd
+            B //= gcd
+            C //= gcd
+
+        if A < 0:  # Asegurar que A sea positivo para uniformidad
+            A, B, C = -A, -B, -C
 
         return (A, B, C)
         pass
