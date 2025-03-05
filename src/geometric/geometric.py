@@ -331,23 +331,11 @@ class Geometria:
         Returns:
             tuple: Coeficientes (A, B, C) de la ecuación de la recta
         """   
-        if x1 == x2: 
-            return (1, 0, -x1)
-
         A = y2 - y1
         B = x1 - x2
-        C = -(A * x1 + B * y1)
+        C = (x2 * y1) - (x1 * y2)
 
-        gcd = math.gcd(math.gcd(A, B), C)
-
-        if gcd != 0:
-            A //= gcd
-            B //= gcd
-            C //= gcd
-        if A < 0 or (A == 0 and B < 0):
-            A, B, C = -A, -B, -C
-
-        return (A, B, C)
+        return A, B, C
 
         pass
     
