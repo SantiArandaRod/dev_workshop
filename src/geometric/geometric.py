@@ -1,5 +1,6 @@
 import math
 pi= math.pi
+from math import gcd
 class Geometria:
     """
     Class with geometric exercises.
@@ -336,6 +337,11 @@ class Geometria:
         A = y2 - y1
         B = x1 - x2
         C = -(A * x1 + B * y1)
+
+        if B <0 or (B==0 and A<0):
+            A,B,C=-A,-B,-C
+        divisor= gcd(gcd(abs(A), abs(B)), abs(C)) if A or B else 1
+        A,B,C=A//divisor, B//divisor, C//divisor 
 
         return (A, B, C)
         pass
