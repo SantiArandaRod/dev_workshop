@@ -265,7 +265,7 @@ class Geometria:
         Returns:
             float: Área de la superficie del cilindro
         """
-        return 2*pi*radio*(radio+altura)
+        return 2*math.pi*radio*(radio+altura)
         pass
     
     def distancia_entre_puntos(self, x1, y1, x2, y2):
@@ -297,7 +297,7 @@ class Geometria:
         Returns:
             tuple: Coordenadas (x, y) del punto medio
         """
-        return (round((x1+x2)/2,2), round((y1+y2)/7,2),2)
+        return (round((x1+x2)/2,2), round((y1+y2)/7,2))
         pass
     
     def pendiente_recta(self, x1, y1, x2, y2):
@@ -314,7 +314,7 @@ class Geometria:
             float: Pendiente de la recta
         """
         if x1 == x2:
-            raise ValueError("Syntax ERROR")
+            raise ZeroDivisionError("La pendiente es indefinida para una línea vertical")
         return round((y2 - y1) / (x2 - x1))
         pass
     
@@ -350,7 +350,7 @@ class Geometria:
         Returns:
             float: Área del polígono regular
         """
-        return round((num_lados*lado*apotema)/2,2)
+        return round((num_lados*apotema)/2,2)
 
         pass
     
