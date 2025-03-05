@@ -51,7 +51,7 @@ class Data:
         """
         result = []
         for item in lista:
-            if item not in result:
+            if not any(item is x for x in result): 
                 result.append(item)
         return result
         pass
