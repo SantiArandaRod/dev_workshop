@@ -59,6 +59,7 @@ class Strings:
             int: Número de consonantes en la cadena
         """
         consonantes="bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
+        assert self.strings.contar_consonantes("Python") == 5 
         return sum(1 for char in texto if char in consonantes)
         pass
     
@@ -99,7 +100,8 @@ class Strings:
         Returns:
             str: Cadena con la primera letra de cada palabra en mayúscula
         """
-        return " ".join(palabra.capitalize() for palabra in texto.split())
+        palabras=texto.split(" ")
+        return " ".join(palabra.capitalize() if palabra else "" for palabra in palabras)        
         pass
     
     def eliminar_espacios_duplicados(self, texto):
@@ -112,7 +114,7 @@ class Strings:
         Returns:
             str: Cadena sin espacios duplicados
         """
-        return " ".join(texto.split())        
+        return " " + " ".join(texto.split()) if texto.startswith(" ") else " ".join(texto.split())      
         pass
     
     def es_numero_entero(self, texto):
@@ -125,10 +127,16 @@ class Strings:
         Returns:
             bool: True si la cadena representa un número entero, False en caso contrario
         """
+        texto = texto.strip()  # Trim whitespace
+
         if not texto:
+
             return False
+
         if texto[0] == "-":
+
             texto = texto[1:]
+
         return all(char in "0123456789" for char in texto)
         pass
     
