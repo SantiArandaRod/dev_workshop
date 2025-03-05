@@ -113,8 +113,12 @@ class Strings:
         Returns:
             str: Cadena sin espacios duplicados
         """
-        result=" ".join(texto.split())     
-        return " " + result if texto.startswith(" ") else result
+        resultado = " ".join(texto.split())  
+        if texto.startswith(" "):
+            resultado = " " + resultado  
+        if texto.endswith(" "):
+            resultado += " "
+        return resultado
         pass
     
     def es_numero_entero(self, texto):
