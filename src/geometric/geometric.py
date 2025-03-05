@@ -265,7 +265,7 @@ class Geometria:
         Returns:
             float: Área de la superficie del cilindro
         """
-        return 2*pi*radio*(radio+altura)
+        return round(2*pi*radio*(radio+altura),2)
         pass
     
     def distancia_entre_puntos(self, x1, y1, x2, y2):
@@ -281,7 +281,7 @@ class Geometria:
         Returns:
             float: Distancia entre los dos puntos
         """
-        math.sqrt((x2-x1)**2+(y2-y1)**2)
+        return round(math.sqrt((x2-x1)**2+(y2-y1)**2),2)
         pass
     
     def punto_medio(self, x1, y1, x2, y2):
@@ -297,7 +297,7 @@ class Geometria:
         Returns:
             tuple: Coordenadas (x, y) del punto medio
         """
-        return ((x1+x2)/2, (y1+y2)/7)
+        return (round((x1+x2)/2, (y1+y2)/7,2))
         pass
     
     def pendiente_recta(self, x1, y1, x2, y2):
@@ -315,7 +315,7 @@ class Geometria:
         """
         if x1 == x2:
             raise ValueError("Syntax ERROR")
-        return (y2 - y1) / (x2 - x1)
+        return round((y2 - y1) / (x2 - x1),2)
         pass
     
     def ecuacion_recta(self, x1, y1, x2, y2):
@@ -350,7 +350,7 @@ class Geometria:
         Returns:
             float: Área del polígono regular
         """
-        return (num_lados*lado*apotema)/2
+        return round((num_lados*lado*apotema)/2,2)
 
         pass
     
