@@ -59,7 +59,6 @@ class Strings:
             int: Número de consonantes en la cadena
         """
         consonantes="bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
-        assert self.strings.contar_consonantes("Python") == 5 
         return sum(1 for char in texto if char in consonantes)
         pass
     
@@ -114,7 +113,7 @@ class Strings:
         Returns:
             str: Cadena sin espacios duplicados
         """
-        return " " + " ".join(texto.split()) if texto.startswith(" ") else " ".join(texto.split())      
+        return " ".join(texto.split()).strip()      
         pass
     
     def es_numero_entero(self, texto):
