@@ -334,11 +334,6 @@ class Geometria:
         A = y2 - y1
         B = x1 - x2
         C = (x2 * y1) - (x1 * y2)
-        if B !=0:
-            factor = B if B > 0 else -B
-            A //= factor
-            B //= factor
-            C //= factor
 
         return A,B,C
 
