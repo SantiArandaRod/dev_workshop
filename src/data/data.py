@@ -49,7 +49,7 @@ class Data:
         Returns:
             list: Lista sin elementos duplicados
         """
-        result=[]
+        result = []
         for item in lista:
             if item not in result:
                 result.append(item)
@@ -78,6 +78,7 @@ class Data:
                 j+=1
         Result.extend(lista1[i:])
         Result.extend(lista2[j:])
+        return Result
         pass
     
     def rotar_lista(self, lista, k):
@@ -91,6 +92,8 @@ class Data:
         Returns:
             list: Lista rotada
         """
+        if not lista:
+            return lista
         k = k% len(lista)
         return lista[-k:]+lista[:-k]
         pass
@@ -107,7 +110,8 @@ class Data:
         """
         n=len(lista)+1
         suma= n*(n+1)//2
-        return suma
+        actual_sum =sum(lista)
+        return suma - actual_sum
         pass
     
     def es_subconjunto(self, conjunto1, conjunto2):
@@ -169,5 +173,7 @@ class Data:
         Returns:
             list: Matriz transpuesta
         """
+        if not matriz or not matriz[0]:
+            return []
         return [[matriz[j][i] for j in range(len(matriz))] for i in range(len(matriz[0]))]
         pass
